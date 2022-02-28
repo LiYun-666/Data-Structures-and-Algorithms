@@ -1,3 +1,11 @@
+/*!
+ * @file quick_sort.cpp
+ * @author liyun2389231032@gmail.com
+ * @brief 快速排序，不稳定
+ * @version 0.0.1
+ * @date 2022-03
+ */
+
 int partition(int arr[], int left, int right)
 {
     int pivot = arr[left];
@@ -13,7 +21,8 @@ int partition(int arr[], int left, int right)
     arr[left] = pivot;
     return left;
 }
-void quick_sort(int arr[], int left, int right) // 不稳定
+
+void quick_sort(int arr[], int left, int right)
 {
     if (left < right) // 递归终止条件
     {

@@ -7,7 +7,7 @@
 using namespace std;
 
 /* 交换 */
-void swap(int a, int b);
+void swap(int &a, int &b);
 
 /* 打印数组 */
 void print_array(int arr[], int n);

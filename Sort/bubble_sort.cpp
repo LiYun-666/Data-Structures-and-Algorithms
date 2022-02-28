@@ -1,4 +1,14 @@
-void bubble_sort(int arr[], int n) // 稳定
+/*!
+ * @file bubble_sort.cpp
+ * @author liyun2389231032@gmail.com
+ * @brief 冒泡排序，稳定
+ * @version 0.0.1
+ * @date 2022-03
+ */
+
+#include "utils.h"
+
+void bubble_sort(int arr[], int n)
 {
     for (int i = 1; i < n; i++)
     {
@@ -6,9 +16,7 @@ void bubble_sort(int arr[], int n) // 稳定
         {
             if (arr[j] < arr[j - 1])
             {
-                arr[j] = arr[j] ^ arr[j - 1];
-                arr[j - 1] = arr[j] ^ arr[j - 1];
-                arr[j] = arr[j] ^ arr[j - 1];
+                swap(arr[j], arr[j - 1]);
             }
         }
     }

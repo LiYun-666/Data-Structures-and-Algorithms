@@ -1,4 +1,11 @@
-void insert_sort(int arr[], int n) // 稳定
+/*!
+ * @file insert_sort.cpp
+ * @author liyun2389231032@gmail.com
+ * @brief 插入排序，稳定
+ * @version 0.0.1
+ * @date 2022-03
+ */
+void insert_sort(int arr[], int n)
 {
     for (int i = 1; i < n; ++i)
     {
