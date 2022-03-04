@@ -125,18 +125,31 @@ void test_heap_sort()
 {
     cout << "====================test heap_sort====================" << endl;
 
+    // int n = 5 + rand() % 5;
+    // int arr[n];
+    // for (int i = 0; i < n; i++)
+    // {
+    //     arr[i] = rand() % 20;
+    // }
+
+    // cout << "Before sort: ";
+    // print_array(arr, n);
+
+    // heap_sort(arr, n);
+
+    // cout << "After sort: ";
+    // print_array(arr, n);
+    
     int n = 5 + rand() % 5;
-    int arr[n];
-    for (int i = 0; i < n; i++)
+    Node *root = new Node(rand() % 20), *tail = root;
+    for (int i = 1; i < n; i++)
     {
-        arr[i] = rand() % 20;
+        tail->next = new Node(rand() % 20, nullptr, nullptr, nullptr, tail, nullptr);
+        if (tail->parent->left != nullptr && tail->parent->right == nullptr) //孩子数等于1
+        {
+            tail->next->parent = tail->parent;
+        }
+        else if () // 孩子数为0
+        else // 孩子数为2
     }
-
-    cout << "Before sort: ";
-    print_array(arr, n);
-
-    heap_sort(arr, n);
-
-    cout << "After sort: ";
-    print_array(arr, n);
 }

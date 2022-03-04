@@ -1,11 +1,3 @@
-#pragma once
-
-#include <iostream>
-#include <cstdlib>
-#include <ctime>
-
-using namespace std;
-
 struct Node
 {
     int val;
@@ -20,11 +12,27 @@ struct Node
     Node(int x, Node *left, Node *right, Node *parent, Node *pre, Node *next): val(x), left(left), right(right), parent(parent), pre(pre), next(next) {}
 };
 
-/* 交换 */
-void swap(int &a, int &b);
+void max_heapify(Node *root, Node *tail)
+{
+    if (root == nullptr || tail == nullptr) return;
 
-/* 打印数组 */
-void print_array(int arr[], int n);
+    Node *tmp = tail->parent;
+    while (tmp != nullptr)
+    {
+        Node *max_node;
+        if (tmp->left == nullptr) max_node = tmp->right;
+        else max_node = tmp->left;
+        if (tmp->val < max_node->val) swap(tmp->val, max_node->val);
+        tmp = tmp->pre;
+    }
 
-/* 关于我 */
-void about_me();
+}
+void heap_sort(Node *root, Node *tail, int n)
+{
+    max_heapify(root, tail);
+    for (int i = 0; i < n - 1; i++)
+    {
+        swap(root->val, tail->val);
+        max_heapify(root, tail->pre);
+    }
+}
