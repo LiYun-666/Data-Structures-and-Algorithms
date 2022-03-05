@@ -24,6 +24,18 @@ void print_array(int arr[], int n)
     cout << endl;
 }
 
+// 打印堆
+void print_heap(Node *root)
+{
+    Node *tmp = root;
+    while (tmp != nullptr)
+    {
+        cout << tmp->val << " ";
+        tmp = tmp->next;
+    }
+    cout << endl;
+}
+
 // 关于我
 void about_me()
 {

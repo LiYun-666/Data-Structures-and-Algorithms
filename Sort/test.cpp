@@ -1,5 +1,4 @@
 #include "sort.h"
-#include "utils.h"
 
 void test_insert_sort()
 {
@@ -121,35 +120,57 @@ void test_merge_sort()
     print_array(arr, n);
 }
 
-void test_heap_sort()
+void test_heap_sort_by_array()
 {
-    cout << "====================test heap_sort====================" << endl;
+    cout << "====================test heap_sort_by_array====================" << endl;
 
-    // int n = 5 + rand() % 5;
-    // int arr[n];
-    // for (int i = 0; i < n; i++)
-    // {
-    //     arr[i] = rand() % 20;
-    // }
+    int n = 5 + rand() % 5;
+    int arr[n];
+    for (int i = 0; i < n; i++)
+    {
+        arr[i] = rand() % 20;
+    }
 
-    // cout << "Before sort: ";
-    // print_array(arr, n);
+    cout << "Before sort: ";
+    print_array(arr, n);
 
-    // heap_sort(arr, n);
+    heap_sort_by_array(arr, n);
 
-    // cout << "After sort: ";
-    // print_array(arr, n);
+    cout << "After sort: ";
+    print_array(arr, n);
+}
+
+void test_heap_sort_by_linked_list()
+{
+    cout << "====================test heap_sort_by_linked_list====================" << endl;
     
     int n = 5 + rand() % 5;
     Node *root = new Node(rand() % 20), *tail = root;
     for (int i = 1; i < n; i++)
     {
+        // 五个指针，左孩子 右孩子 父亲 (前驱) (后继)
         tail->next = new Node(rand() % 20, nullptr, nullptr, nullptr, tail, nullptr);
-        if (tail->parent->left != nullptr && tail->parent->right == nullptr) //孩子数等于1
+        if (tail->parent == nullptr) // 根结点
         {
+            tail->left = tail->next;
+            tail->next->parent = tail;
+        }
+        else if (tail->parent->left != nullptr && tail->parent->right == nullptr) // 孩子数为1
+        {
+            // tail->next->parent = tail->parent;
+            tail->parent->right = tail->next;
             tail->next->parent = tail->parent;
         }
-        else if () // 孩子数为0
         else // 孩子数为2
+        {
+            tail->parent->next->left = tail->next;
+            tail->next->parent = tail->parent->next;
+        }
+        tail = tail->next;
     }
+    cout << "Before sort: ";
+    print_heap(root);
+    heap_sort_by_linked_list(root, tail, n);
+    cout << "After sort: ";
+    print_heap(root);
 }

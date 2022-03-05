@@ -10,7 +10,8 @@ int main()
     test_quick_sort();
     test_select_sort();
     test_merge_sort();
-    test_heap_sort();
+    test_heap_sort_by_array();
+    test_heap_sort_by_linked_list();
     
     about_me();
     return 0;

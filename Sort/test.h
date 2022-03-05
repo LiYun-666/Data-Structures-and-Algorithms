@@ -14,4 +14,6 @@ void test_select_sort();
 
 void test_merge_sort();
 
-void test_heap_sort();
+void test_heap_sort_by_array();
+
+void test_heap_sort_by_linked_list();
