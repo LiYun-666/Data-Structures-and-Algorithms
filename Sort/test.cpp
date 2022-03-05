@@ -143,12 +143,11 @@ void test_heap_sort_by_array()
 void test_heap_sort_by_linked_list()
 {
     cout << "====================test heap_sort_by_linked_list====================" << endl;
-    
+
     int n = 5 + rand() % 5;
     Node *root = new Node(rand() % 20), *tail = root;
     for (int i = 1; i < n; i++)
     {
-        // 五个指针，左孩子 右孩子 父亲 (前驱) (后继)
         tail->next = new Node(rand() % 20, nullptr, nullptr, nullptr, tail, nullptr);
         if (tail->parent == nullptr) // 根结点
         {
@@ -170,7 +169,9 @@ void test_heap_sort_by_linked_list()
     }
     cout << "Before sort: ";
     print_heap(root);
+
     heap_sort_by_linked_list(root, tail, n);
+
     cout << "After sort: ";
     print_heap(root);
 }
