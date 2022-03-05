@@ -16,7 +16,7 @@ public:
         while (i < n)
         {
             if (j == 0 || s[i] == s[j])
-                next[++i] = next[++j];
+                next[++i] = ++j;
             else
                 j = next[j];
         }
@@ -37,14 +37,19 @@ public:
         if (j > n)
             return i - n;
         else
-            return 0;
+            return -1;
     }
 };
 
 int main()
 {
     KMP_algorithm obj;
-    string s1 = "kjasffal", s2 = "asff";
+    string s1 = "kjasffal", s2 = "asf";
+    if (s1.size() == 0 || s2.size() == 0)
+    {
+        cout << -1 << endl;
+        return 0;
+    }
     s1 = to_string(s1.size()) + s1;
     s2 = to_string(s2.size()) + s2;
     cout << obj.kmp(s1, s2) << endl;
