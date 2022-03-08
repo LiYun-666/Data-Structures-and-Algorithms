@@ -1,3 +1,11 @@
+/*!
+ * @file utils.h
+ * @author liyun2389231032@gmail.com
+ * @brief 工具文件，为排序算法提供一些工具，如 swap 函数等
+ * @version 0.0.1
+ * @date 2022-03
+ */
+
 #pragma once
 
 #include <iostream>
