@@ -1,6 +1,12 @@
+/*!
+ * @file utils.cpp
+ * @author liyun2389231032@gmail.com
+ * @brief 工具函数实现
+ * @version 0.0.1
+ * @date 2022-03
+ */
+
 #include "utils.h"
-
-
 
 
 // 交换

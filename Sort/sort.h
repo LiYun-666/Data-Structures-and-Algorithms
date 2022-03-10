@@ -1,3 +1,11 @@
+/*!
+ * @file sort
+ * @author liyun2389231032@gmail.com
+ * @brief 排序函数声明
+ * @version 0.0.1
+ * @date 2022-03
+ */
+
 #pragma once
 
 #include "utils.h"
