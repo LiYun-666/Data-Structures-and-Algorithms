@@ -6,30 +6,32 @@
 
 using namespace std;
 
-vector<string> ret;
-void dfs(string s, int pos)
+void dfs(vector<string> &res, string &s, int pos)
 {
     if (pos == s.size() - 1)
     {
-        ret.push_back(s);
+        res.push_back(s);
         return;
     }
     unordered_set<char> ch;
     for (int i = pos; i < s.size(); i++)
     {
-        if (ch.find(s[i]) != ch.end()) continue;
+        if (ch.find(s[i]) != ch.end())
+            continue;
         ch.insert(s[i]);
         swap(s[i], s[pos]);
-        dfs(s, pos + 1);
+        dfs(res, s, pos + 1);
         swap(s[i], s[pos]);
     }
 }
+
 void my_permutation(string s)
 {
-    dfs(s, 0);
-    sort(ret.begin(), ret.end());
-    for (int i = 0; i < ret.size(); i++)
-        cout << ret[i] << " ";
+    vector<string> res;
+    dfs(res, s, 0);
+    sort(res.begin(), res.end());
+    for (int i = 0; i < res.size(); i++)
+        cout << res[i] << " ";
     cout << endl;
 }
 
